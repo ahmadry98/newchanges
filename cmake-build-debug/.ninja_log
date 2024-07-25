@@ -1,0 +1,21 @@
+# ninja log v5
+6	410	7436123362867436	build.ninja	aabc2ba60e478b66
+19	1467	7436084073474320	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+21	1556	7434544732842615	CMakeFiles/hw2yousef.dir/House.cpp.obj	d1182a0de4d782db
+38	2607	7436081656544794	CMakeFiles/hw2yousef.dir/Sensors.cpp.obj	7ad35c63d216e796
+51	3639	7436121351873560	CMakeFiles/hw2yousef.dir/main.cpp.obj	80e275c9950739ed
+1752	1982	7436066304690607	hw2yousef.exe	e5ef72f23a42033f
+12	1121	7436081752692147	CMakeFiles/hw2yousef.dir/Hoover.cpp.obj	ed4d33bae8780710
+14	2228	7436084081075523	CMakeFiles/hw2yousef.dir/MySimulator.cpp.obj	8bc05001a5910d3a
+14	1261	7436124440196848	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+6	1251	7436126402522040	CMakeFiles/hw2yousef.dir/main.cpp.obj	80e275c9950739ed
+16	1405	7436126404038141	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+77	1930	7436126749673409	CMakeFiles/hw2yousef.dir/main.cpp.obj	80e275c9950739ed
+86	2274	7436126753143040	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+91	3192	7436126762264031	CMakeFiles/hw2yousef.dir/MySimulator.cpp.obj	8bc05001a5910d3a
+6	1164	7436127888639712	CMakeFiles/hw2yousef.dir/main.cpp.obj	80e275c9950739ed
+11	1555	7436127892548663	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+16	2275	7436127899726631	CMakeFiles/hw2yousef.dir/MySimulator.cpp.obj	8bc05001a5910d3a
+14	1842	7436128647703708	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+10	3241	7436129125454074	CMakeFiles/hw2yousef.dir/CleaningAlgorithm.cpp.obj	1885b6198a33835f
+3241	3490	7436129127844445	hw2yousef.exe	e5ef72f23a42033f
