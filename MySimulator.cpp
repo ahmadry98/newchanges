@@ -4,13 +4,22 @@
 #include <stdexcept>
 #include <filesystem>
 #include "CleaningAlgorithm.h"
+
+
 std::vector<std::vector<int>> MySimulator::parseHouseLayout(std::ifstream &inputFile, int rows, int cols) {
-    // Create a layout matrix with extra padding for the casing
+    // Create a layout matrix with extra padding for the casing (-1) and initialize the interior to 0
     std::vector<std::vector<int>> layoutWithCasing(rows + 2, std::vector<int>(cols + 2, -1));
+    for (int i = 1; i <= rows; ++i) {
+        for (int j = 1; j <= cols; ++j) {
+            layoutWithCasing[i][j] = 0;
+        }
+    }
+
     std::string line;
     int rowNum = 0;
     bool hasDockingStation = false;
 
+    // Read each line from the input file
     while (std::getline(inputFile, line)) {
         if (rowNum >= rows) {
             break;
@@ -18,20 +27,21 @@ std::vector<std::vector<int>> MySimulator::parseHouseLayout(std::ifstream &input
         for (int colNum = 0; colNum < std::min(static_cast<int>(line.length()), cols); ++colNum) {
             char ch = line[colNum];
             if (ch == 'W') {
-                layoutWithCasing[rowNum + 1][colNum + 1] = -1;
+                layoutWithCasing[rowNum + 1][colNum + 1] = -1;  // Wall
             } else if (ch == 'D') {
                 if (hasDockingStation) {
                     throw std::runtime_error("Invalid input: More than one docking station found.");
                 }
-                layoutWithCasing[rowNum + 1][colNum + 1] = -2;
+                layoutWithCasing[rowNum + 1][colNum + 1] = -2;  // Docking station
                 hasDockingStation = true;
+            } else if (ch == ' ') {
+                layoutWithCasing[rowNum + 1][colNum + 1] = 0;  // Empty space
             } else if (isdigit(ch)) {
-                layoutWithCasing[rowNum + 1][colNum + 1] = ch - '0';
+                layoutWithCasing[rowNum + 1][colNum + 1] = ch - '0';  // Dirt level
             }
         }
         rowNum++;
     }
-
     if (!hasDockingStation) {
         throw std::runtime_error("Invalid input: No docking station found.");
     }
@@ -88,7 +98,6 @@ void MySimulator::readHouseFile(const std::string& houseFilePath) {
 
 
 void MySimulator::run() {
-
     std::vector<Step> allmoves(maxSteps);
     CleaningAlgorithm algorithm(maxSteps);
     int i = 0;
@@ -174,9 +183,9 @@ void MySimulator::run() {
 
 }
 
-MySimulator::MySimulator() {
-    this->houseFilePath= nullptr;
-}
+//MySimulator::MySimulator() {
+  //  this->houseFilePath= nullptr;
+//}
 
 void MySimulator::setAlgorithm(CleaningAlgorithm& algo) {
     algo.setMaxSteps(maxSteps);

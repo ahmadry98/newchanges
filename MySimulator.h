@@ -9,8 +9,7 @@
 #include "CleaningAlgorithm.h"
 
 class MySimulator {
-public:
-    MySimulator();
+public:;
 
     void readHouseFile(const std::string& houseFilePath);
     void setAlgorithm(CleaningAlgorithm& algo);

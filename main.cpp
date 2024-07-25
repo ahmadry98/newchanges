@@ -10,6 +10,7 @@ int main(int argc, char** argv) {
 
     std::string houseFilePath = argv[1];
     MySimulator simulator;
+    std :: cout <<"we are here"<<std :: endl;
     simulator.readHouseFile(houseFilePath);
 
     CleaningAlgorithm algo;
