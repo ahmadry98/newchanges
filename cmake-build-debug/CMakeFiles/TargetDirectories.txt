@@ -1,3 +1,3 @@
-C:/Users/2023/CLionProjects/newchanges/cmake-build-debug/CMakeFiles/hw2yousef.dir
-C:/Users/2023/CLionProjects/newchanges/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/2023/CLionProjects/newchanges/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/CMakeFiles/hw2yousef.dir
+C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/CMakeFiles/rebuild_cache.dir

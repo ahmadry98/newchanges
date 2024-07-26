@@ -6,8 +6,11 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <queue>
 #include "enums.h"
 #include "abstract_algorithm.h"
+#include <iostream>
+#include <fstream>
 class CleaningAlgorithm : AbstractAlgorithm{
 private:
 
@@ -18,6 +21,9 @@ private:
     MyDirtSensor*  dirtSensor;
     MyWallSensor* WallSensor;
     std::vector<std::vector<int>> HouseScan;
+    int CurrX , CurrY;
+    //std::queue<std::pair<int, int>> bfsQueue;
+
 public:
     CleaningAlgorithm(int n);
 
@@ -40,6 +46,8 @@ public:
     void setBatteryMeter(const BatteryMeter& batteryMeter) override;
     Step nextStep() override;
     ~CleaningAlgorithm() override;
+    void writeBFSQueueToFile(const std::string& filename);
+    void writeHouseScanToFile(const std::string& filename);
 };
 
 #endif // CLEANINGALGORITHM_H

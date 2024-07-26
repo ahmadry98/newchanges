@@ -20,6 +20,28 @@ public:
     int getDirtLevel() const  {
         return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY()]; // Example implementation; replace with actual logic
     }
+    int getDirtLevelwithStep(Step dir)   {
+        if(dir==Step::North){
+            return hoover->gethouse().getLayout()[hoover->getCurrentX()-1][hoover->getCurrentY()]; // Example implementation; replace with actual logic
+        }
+        if(dir==Step::South){
+            return hoover->gethouse().getLayout()[hoover->getCurrentX()+1][hoover->getCurrentY()]; // Example implementation; replace with actual logic
+
+        }
+        if(dir==Step::West){
+            return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY()-1]; // Example implementation; replace with actual logic
+
+        }
+        if(dir==Step::East){
+            return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY()+1]; // Example implementation; replace with actual logic
+
+        }
+        if(dir==Step::Stay){
+            return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY()]; // Example implementation; replace with actual logic
+
+        }
+        return 0;
+    }
 
     int getAllDirtLevel()  {
         return hoover->gethouse().getTotalDirt(); // Example implementation; replace with actual logic
@@ -37,6 +59,20 @@ public:
     // Constructor
     MyWallSensor( Hoover *hoover) : hoover(hoover) {}
 
+    bool isWallStep(Step direction)  {
+        switch (direction) {
+            case Step::North:
+                return hoover->gethouse().getLayout()[hoover->getCurrentX() - 1][hoover->getCurrentY()] == -1;
+            case Step::East:
+                return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY() + 1] == -1;
+            case Step::South:
+                return hoover->gethouse().getLayout()[hoover->getCurrentX() + 1][hoover->getCurrentY()] == -1;
+            case Step::West:
+                return hoover->gethouse().getLayout()[hoover->getCurrentX()][hoover->getCurrentY() - 1] == -1;
+            default:
+                return false;
+        }
+    }
     bool isWall(Direction direction) const {
         switch (direction) {
             case Direction::North:

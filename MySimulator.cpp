@@ -121,6 +121,7 @@ void MySimulator::run() {
         }
     }
 
+    algorithm.writeHouseScanToFile("house_scan.txt");
     std::string baseFileName = std::filesystem::path(this->houseFilePath).stem().string();
     std::string outputFileName = "output_" + baseFileName + ".txt";
     std::ofstream outputFile(outputFileName);
