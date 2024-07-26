@@ -14,8 +14,9 @@
 class CleaningAlgorithm : AbstractAlgorithm{
 private:
 
-    int num,i;
+    int num,i,j;
     Step* moves;
+    Step* movesback;
     std::size_t maxSteps;
     MyBatterySensor* batteryMeter;
     MyDirtSensor*  dirtSensor;
@@ -23,6 +24,7 @@ private:
     std::vector<std::vector<int>> HouseScan;
     int CurrX , CurrY;
     int lastX,lastY;
+    bool returnway;
     //std::queue<std::pair<int, int>> bfsQueue;
 
 public:

@@ -4,12 +4,13 @@
 #include <unordered_map>
 #include <iostream>
 #include <iomanip>
+#include <limits> // For numeric_limits
 
-CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]) {
+CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]),j(0) ,movesback(new Step[num]){
     std::srand(std::time(nullptr)); // Seed for random number generation
     for(int ind=0;ind<n;ind++){
-
         moves[ind]=Step::Finish;
+        movesback[ind]=Step::Finish;
     }
     HouseScan = std::vector<std::vector<int>>(1000, std::vector<int>(1000, -3));
     HouseScan[500][500] = -2;
@@ -17,6 +18,7 @@ CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]) {
     CurrY=500;
     lastX = 500;
     lastY=500;
+    returnway= false;
     //bfsQueue.push({500, 500});  // Starting from the center (docking station)
 }
 
@@ -29,7 +31,30 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
     Step move;
     int currentX = CurrX;
     int currentY = CurrY;
-    //auto [currentX, currentY] = bfsQueue.front();
+    if(CurrX==500 && CurrY ==500 && batterySensor.getBatteryLevel() < 0.8 * batterySensor.getMaxBatteryLevel()){
+        return Step::Stay;
+    }
+    if(!shouldReturnToDocking(batterySensor) && returnway){
+        moves[i]=movesback[i];
+        move=moves[i];
+        i++;
+        if(move==Step::North){
+            CurrX=CurrX-1;
+        }
+        if(move==Step::South){
+            CurrX=CurrX+1;
+        }
+        if(move==Step::West){
+            CurrY=CurrY-1;
+        }
+        if(move==Step::East){
+            CurrY=CurrY+1;
+        }
+        if(i==j){
+            returnway=false;
+        }
+        return move;
+    }
     if (!wallSensor.isWall(Direction::North) )
     {
         possibleMoves.push_back(Step::North);
@@ -94,6 +119,9 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
             if (HouseScan[newX][newY] == -3) {
                 HouseScan[newX][newY] = currdirt;
             }
+            else if(HouseScan[newX][newY]>currdirt){
+                HouseScan[newX][newY] = currdirt;
+            }
         }
     }
         if(dirtSensor.getDirtLevelwithStep(Step::Stay)>0){
@@ -107,10 +135,7 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
     // Randomly select one of the possible moves
     //int randomIndex = std::rand() % possibleMoves.size();
     Step nextDirection;
-    /*if(maxdirtfornow==-1) {
-        int randomIndex = std::rand() % possibleMoves.size();
-         nextDirection = possibleMoves[randomIndex];
-    }*/
+
     if(maxdirtfornow>-1) {
          nextDirection = dirtogoto;
     }
@@ -121,6 +146,7 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
 
     // Check if should return to docking station
     if (shouldReturnToDocking(batterySensor)) {
+        returnway= true;
         if(i==0) {
             return Step::Stay;
         };
@@ -155,6 +181,8 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
         if (!possibleMoves.empty()) {
             //randomIndex = std::rand() % possibleMoves.size();
             move = dirtogoto;
+            movesback[j]=move;
+            j++;
             moves[i]=move;
             i++;
             if(move==Step::North){
@@ -174,9 +202,14 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
     }
 
     // Otherwise, return the randomly chosen next move
+
     move = nextDirection;
     moves[i]=move;
     i++;
+    if(move!=Step::Stay){
+       movesback[j]=move;
+       j++;
+    }
     if(move==Step::North){
         CurrX=CurrX-1;
     }
@@ -196,7 +229,7 @@ bool CleaningAlgorithm::shouldReturnToDocking(MyBatterySensor& batterySensor) {
     // Example: Naive logic to check if battery level is low and return to docking
     // For simplicity, return true if battery level is below 20%
     int batteryLevel = batterySensor.getBatteryLevel();
-    return batteryLevel < 0.55 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
+    return batteryLevel < 0.3 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
 }
 
 

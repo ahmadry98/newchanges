@@ -1,14 +1,14 @@
 Total dirt in the beginning: 36
-Total dirt left: 26
-Hoover battery level: 10
-Hoover position: (2, 4)
-The hoover hasn't successfully cleaned the house because it ran out of moves.
+Total dirt left: 15
+Hoover battery level: 0
+Hoover position: (3, 3)
+The hoover has run out of battery and failed to clean the house.
 The hoover took the path:
-1: SOUTH, 2: EAST, 3: STAY, 4: EAST, 5: STAY, 6: STAY, 7: EAST, 8: STAY, 9: STAY, 10: STAY, 11: WEST, 12: WEST, 13: WEST, 14: NORTH, 15: STAY, 16: STAY, 17: EAST, 18: EAST, 19: NORTH, 20: SOUTH, 21: WEST, 22: WEST, 23: STAY, 24: EAST, 25: WEST, 26: EAST, 27: WEST, 28: EAST, 29: WEST, 30: EAST, 31: WEST, 32: EAST, 33: WEST, 34: EAST, 35: WEST, 36: EAST, 37: WEST, 38: EAST, 39: WEST, 40: EAST, 41: WEST, 42: EAST, 43: WEST, 44: EAST, 45: WEST, 46: EAST, 47: WEST, 48: EAST, 49: WEST, 50: EAST, 51: WEST, 52: EAST, 53: WEST, 54: EAST, 55: WEST, 56: EAST, 57: WEST, 58: EAST, 59: WEST, 60: EAST, 61: WEST, 62: EAST, 63: WEST, 64: EAST, 65: WEST, 66: EAST, 67: WEST, 68: EAST, 69: WEST, 70: EAST, 71: WEST, 72: EAST, 73: WEST, 74: EAST, 75: WEST, 76: EAST, 77: WEST, 78: EAST, 79: WEST, 80: EAST, 81: WEST, 82: EAST, 83: WEST, 84: EAST, 85: WEST, 86: EAST, 87: WEST, 88: EAST, 89: WEST, 90: EAST, 91: WEST, 92: EAST, 93: WEST, 94: EAST, 95: WEST, 96: EAST, 97: WEST, 98: EAST, 99: WEST, 100: EAST
+1: SOUTH, 2: EAST, 3: STAY, 4: EAST, 5: STAY, 6: STAY, 7: EAST, 8: STAY, 9: STAY, 10: STAY, 11: EAST, 12: STAY, 13: STAY, 14: STAY, 15: STAY, 16: WEST, 17: WEST, 18: WEST, 19: WEST, 20: NORTH, 21: STAY, 22: STAY, 23: STAY, 24: STAY, 25: SOUTH, 26: EAST, 27: EAST, 28: EAST, 29: EAST, 30: EAST, 31: STAY, 32: STAY, 33: STAY, 34: STAY, 35: STAY, 36: WEST, 37: WEST, 38: WEST, 39: WEST, 40: WEST
 House layout:
 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
 -1 -1 -1 -1 -1 0 0 0 0 0 0 -1 
 -1 -1 0 -2 0 0 0 0 0 0 0 -1 
--1 -1 0 0 0 0 0 5 6 7 8 -1 
+-1 -1 0 0 0 0 0 0 0 7 8 -1 
 -1 0 0 0 0 0 0 0 0 0 0 -1 
 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
