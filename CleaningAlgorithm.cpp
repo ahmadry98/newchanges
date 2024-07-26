@@ -229,7 +229,7 @@ bool CleaningAlgorithm::shouldReturnToDocking(MyBatterySensor& batterySensor) {
     // Example: Naive logic to check if battery level is low and return to docking
     // For simplicity, return true if battery level is below 20%
     int batteryLevel = batterySensor.getBatteryLevel();
-    return batteryLevel < 0.3 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
+    return batteryLevel < 0.55 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
 }
 
 
