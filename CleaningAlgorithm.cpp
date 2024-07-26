@@ -15,6 +15,8 @@ CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]) {
     HouseScan[500][500] = -2;
     CurrX=500;
     CurrY=500;
+    lastX = 500;
+    lastY=500;
     //bfsQueue.push({500, 500});  // Starting from the center (docking station)
 }
 
@@ -72,26 +74,47 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
     }
     // Always add STAY as a possible move
     possibleMoves.push_back(Step::Stay);
+        int maxdirtfornow=-1;
+        Step dirtogoto;
+        for (auto &dir: possibleMoves) {
+        int newX = currentX, newY = currentY;
+        if (dir == Step::North)newX = currentX - 1;
+        if (dir == Step::South) newX = currentX + 1;
+        if (dir == Step::West) newY = currentY - 1;
+        if (dir == Step::East) newY = currentY + 1;
 
-        for (auto& dir : possibleMoves) {
-            int newX=currentX, newY=currentY;
-            if(dir == Step::North )newX=currentX-1;
-            if(dir == Step::South ) newX=currentX+1;
-            if (dir == Step::West ) newY=currentY-1;
-           if(dir == Step::East ) newY=currentY+1;
-            if (newX >= 0 && newX < 1000 && newY >= 0 && newY < 1000) {
-                if (HouseScan[newX][newY] == -3) {
-                    HouseScan[newX][newY] = dirtSensor.getDirtLevelwithStep(dir);
-                }
+        if (newX >= 0 && newX < 1000 && newY >= 0 && newY < 1000) {
+
+            int currdirt = dirtSensor.getDirtLevelwithStep(dir);
+
+            if (currdirt > maxdirtfornow ) {
+                maxdirtfornow = currdirt;
+                dirtogoto = dir;
             }
+            if (HouseScan[newX][newY] == -3) {
+                HouseScan[newX][newY] = currdirt;
+            }
+        }
+    }
+        if(dirtSensor.getDirtLevelwithStep(Step::Stay)>0){
+            dirtogoto=Step::Stay;
+            maxdirtfornow=dirtSensor.getDirtLevelwithStep(Step::Stay);
         }
 
         // Update the current position
 
 
     // Randomly select one of the possible moves
-    int randomIndex = std::rand() % possibleMoves.size();
-    Step nextDirection = possibleMoves[randomIndex];
+    //int randomIndex = std::rand() % possibleMoves.size();
+    Step nextDirection;
+    /*if(maxdirtfornow==-1) {
+        int randomIndex = std::rand() % possibleMoves.size();
+         nextDirection = possibleMoves[randomIndex];
+    }*/
+    if(maxdirtfornow>-1) {
+         nextDirection = dirtogoto;
+    }
+
 
     // Remember the previous direction to decide next moves
     previousDirection = nextDirection;
@@ -104,22 +127,34 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
         Step d = moves[i-1];
         moves[i-1]= Step::Finish;
         i = i-1;
-        if(d==Step::North){return Step::South; CurrX=CurrX+1;}
-        if(d==Step::South){return Step::North;CurrX=CurrX-1;}
-        if(d==Step::West){return Step::East;CurrY=CurrY+1;}
-        if(d==Step::East){return Step::West;CurrY=CurrY-1;}
-        return Step::Stay;
+        if(d==Step::North){ CurrX=CurrX+1;return Step::South;}
+        if(d==Step::South){CurrX=CurrX-1;return Step::North;}
+        if(d==Step::West){CurrY=CurrY+1;return Step::East;}
+        if(d==Step::East){CurrY=CurrY-1;return Step::West;}
+        if(d==Step::Stay){
+            while(d==Step::Stay){
+                d = moves[i-1];
+                moves[i-1]= Step::Finish;
+                i = i-1;
+            }
+            if(d==Step::North){ CurrX=CurrX+1;return Step::South;}
+            if(d==Step::South){CurrX=CurrX-1;return Step::North;}
+            if(d==Step::West){CurrY=CurrY+1;return Step::East;}
+            if(d==Step::East){CurrY=CurrY-1;return Step::West;}
+
+        }
     }
 
-
+    lastX = CurrX;
+    lastY = CurrY;
     bool hasDirt = dirtSensor.getDirtLevel() > 0;
 
     if (nextDirection == Step::Stay && !hasDirt) {
         // Choose another random direction that is not STAY
         possibleMoves.erase(std::remove(possibleMoves.begin(), possibleMoves.end(), Step::Stay), possibleMoves.end());
         if (!possibleMoves.empty()) {
-            randomIndex = std::rand() % possibleMoves.size();
-            move = possibleMoves[randomIndex];
+            //randomIndex = std::rand() % possibleMoves.size();
+            move = dirtogoto;
             moves[i]=move;
             i++;
             if(move==Step::North){
@@ -161,7 +196,7 @@ bool CleaningAlgorithm::shouldReturnToDocking(MyBatterySensor& batterySensor) {
     // Example: Naive logic to check if battery level is low and return to docking
     // For simplicity, return true if battery level is below 20%
     int batteryLevel = batterySensor.getBatteryLevel();
-    return batteryLevel < 0.66 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
+    return batteryLevel < 0.55 * batterySensor.getMaxBatteryLevel(); // Assuming getMaxBatteryLevel() returns max steps
 }
 
 

@@ -22,6 +22,7 @@ private:
     MyWallSensor* WallSensor;
     std::vector<std::vector<int>> HouseScan;
     int CurrX , CurrY;
+    int lastX,lastY;
     //std::queue<std::pair<int, int>> bfsQueue;
 
 public:
