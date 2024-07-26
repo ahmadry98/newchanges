@@ -98,6 +98,7 @@ void MySimulator::readHouseFile(const std::string& houseFilePath) {
 
 
 void MySimulator::run() {
+    int totald = house->getTotalDirt();
     std::vector<Step> allmoves(maxSteps);
     CleaningAlgorithm algorithm(maxSteps);
     int i = 0;
@@ -130,7 +131,7 @@ void MySimulator::run() {
         return;
     }
 
-    outputFile << "Total dirt in the beginning: " << house->getTotalDirt() << std::endl;
+    outputFile << "Total dirt in the beginning: " << totald << std::endl;
     outputFile << "Total dirt left: " << house->getTotalDirt() << std::endl;
     outputFile << "Hoover battery level: " << hoover->getBatteryLevel() << std::endl;
     outputFile << "Hoover position: (" << hoover->getCurrentX() << ", " << hoover->getCurrentY() << ")" << std::endl;

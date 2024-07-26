@@ -9,7 +9,7 @@ CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]) {
     std::srand(std::time(nullptr)); // Seed for random number generation
     for(int ind=0;ind<n;ind++){
 
-        moves[ind]=Step::Stay;
+        moves[ind]=Step::Finish;
     }
     HouseScan = std::vector<std::vector<int>>(1000, std::vector<int>(1000, -3));
     HouseScan[500][500] = -2;
@@ -62,7 +62,7 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
         }
         Step s = moves[i-1];
         //Direction d = moves[i-1];
-        moves[i-1]= Step::Stay;
+        moves[i-1]= Step::Finish;
         i = i-1;
         if(s==Step::North)return Step::South;
         if(s==Step::South)return Step::North;
@@ -102,7 +102,7 @@ Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSen
             return Step::Stay;
         };
         Step d = moves[i-1];
-        moves[i-1]= Step::Stay;
+        moves[i-1]= Step::Finish;
         i = i-1;
         if(d==Step::North){return Step::South; CurrX=CurrX+1;}
         if(d==Step::South){return Step::North;CurrX=CurrX-1;}

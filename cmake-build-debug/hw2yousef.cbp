@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="hw2yousef"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hw2yousef">
+				<Option output="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/hw2yousef.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2yousef"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hw2yousef/fast">
+				<Option output="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/hw2yousef.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include/c++/14.1.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.1.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2yousef/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/ahmad/CLionProjects/newchangesnw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/CleaningAlgorithm.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/CleaningAlgorithm.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/Hoover.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/Hoover.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/House.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/House.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/MySimulator.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/MySimulator.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/Sensors.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/Sensors.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/abstract_algorithm.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/config.h">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/main.cpp">
+			<Option target="hw2yousef"/>
+		</Unit>
+		<Unit filename="C:/Users/ahmad/CLionProjects/newchangesnw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
