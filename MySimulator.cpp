@@ -129,7 +129,9 @@ void MySimulator::run() {
         std::cerr << "Error opening output file: " << outputFileName << std::endl;
         return;
     }
-
+    if(i>hoover->getMaxSteps()){
+        i=hoover->getMaxSteps();
+    }
     outputFile << "NumSteps=" << i << std::endl;
     outputFile << "DirtLeft=" << house->getTotalDirt() << std::endl;
     outputFile << "Status=" ;
@@ -147,33 +149,29 @@ void MySimulator::run() {
     for (int j = 0; j < i; j++) {
         switch (allmoves[j]) {
             case Step::North:
-                outputFile <<"N";
+                outputFile << "N";
                 break;
             case Step::East:
-                outputFile <<"E";
+                outputFile << "E";
                 break;
             case Step::West:
-                outputFile <<"W";
+                outputFile << "W";
                 break;
             case Step::South:
-                outputFile <<"S";
+                outputFile << "S";
                 break;
             case Step::Stay:
-                outputFile <<"s";
+                outputFile << "s";
                 break;
             case Step::Finish:
                 break;
 
         }
-        if (j < i - 1) {
-
-        } else {
-            outputFile << std::endl;
-        }
 
     }
     if(house->getTotalDirt()==0) outputFile <<"F";
 
+    outputFile << std::endl;
 
     outputFile.close();
 
