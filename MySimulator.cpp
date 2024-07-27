@@ -98,7 +98,6 @@ void MySimulator::readHouseFile(const std::string& houseFilePath) {
 
 
 void MySimulator::run() {
-    int totald = house->getTotalDirt();
     std::vector<Step> allmoves(maxSteps);
     CleaningAlgorithm algorithm(maxSteps);
     int i = 0;
@@ -131,52 +130,50 @@ void MySimulator::run() {
         return;
     }
 
-    outputFile << "Total dirt in the beginning: " << totald << std::endl;
-    outputFile << "Total dirt left: " << house->getTotalDirt() << std::endl;
-    outputFile << "Hoover battery level: " << hoover->getBatteryLevel() << std::endl;
-    outputFile << "Hoover position: (" << hoover->getCurrentX() << ", " << hoover->getCurrentY() << ")" << std::endl;
-
-    if (hoover->getBatteryLevel() == 0 && house->getTotalDirt() > 0) {
-        outputFile << "The hoover has run out of battery and failed to clean the house." << std::endl;
-    } else if (house->getTotalDirt() == 0 && hoover->getCurrentX() == hoover->getChargingStationX() &&
-               hoover->getCurrentY() == hoover->getChargingStationY()) {
-        outputFile << "The hoover has successfully cleaned the house and returned to the docking station." << std::endl;
-    } else if (house->getTotalDirt() > 0 && i == hoover->getMaxSteps()) {
-        outputFile << "The hoover hasn't successfully cleaned the house because it ran out of moves." << std::endl;
-    } else {
-        outputFile << "The hoover has cleaned the house but is not at the docking station." << std::endl;
+    outputFile << "NumSteps=" << i << std::endl;
+    outputFile << "DirtLeft=" << house->getTotalDirt() << std::endl;
+    outputFile << "Status=" ;
+    if(i==hoover->getMaxSteps()&&house->getTotalDirt()>0){
+        outputFile << "WORKING"<< std::endl;
+    }
+    if(house->getTotalDirt()==0) {
+        outputFile << "FINISHED"<< std::endl;
+    }
+    if(hoover->getBatteryLevel()==0){
+        outputFile << "DEAD"<< std::endl;
     }
 
-    outputFile << "The hoover took the path:" << std::endl;
+    outputFile << "Steps:"<< std::endl;
     for (int j = 0; j < i; j++) {
         switch (allmoves[j]) {
             case Step::North:
-                outputFile << j + 1 << ": NORTH";
+                outputFile <<"N";
                 break;
             case Step::East:
-                outputFile << j + 1 << ": EAST";
+                outputFile <<"E";
                 break;
             case Step::West:
-                outputFile << j + 1 << ": WEST";
+                outputFile <<"W";
                 break;
             case Step::South:
-                outputFile << j + 1 << ": SOUTH";
+                outputFile <<"S";
                 break;
-
             case Step::Stay:
-                outputFile << j + 1 << ": STAY";
+                outputFile <<"s";
+                break;
+            case Step::Finish:
                 break;
 
         }
         if (j < i - 1) {
-            outputFile << ", ";
+
         } else {
             outputFile << std::endl;
         }
-    }
 
-    outputFile << "House layout:" << std::endl;
-    house->displayHouse(outputFile);
+    }
+    if(house->getTotalDirt()==0) outputFile <<"F";
+
 
     outputFile.close();
 

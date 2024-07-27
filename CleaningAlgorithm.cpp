@@ -6,7 +6,7 @@
 #include <iomanip>
 #include <limits> // For numeric_limits
 
-CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),moves(new Step[num]),j(0) ,movesback(new Step[num]){
+CleaningAlgorithm::CleaningAlgorithm(int n):num(n),i(0),j(0),moves(new Step[num]),movesback(new Step[num]){
     std::srand(std::time(nullptr)); // Seed for random number generation
     for(int ind=0;ind<n;ind++){
         moves[ind]=Step::Finish;

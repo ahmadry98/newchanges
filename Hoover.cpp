@@ -50,6 +50,8 @@ void Hoover::move(Step direction) {
                 house->cleanDirt(currentX, currentY);
             }
             break;
+        case Step::Finish:
+            break;
             /*
         case NOMOVE:
             // Handle NOMOVE case if necessary
