@@ -27,6 +27,7 @@ CleaningAlgorithm::CleaningAlgorithm() {
 
 
 Step CleaningAlgorithm::nextMove(MyDirtSensor& dirtSensor, MyWallSensor& wallSensor, MyBatterySensor& batterySensor) {
+
     possibleMoves.clear(); // Clear previous possible moves
     Step move;
     int currentX = CurrX;
@@ -259,6 +260,10 @@ void CleaningAlgorithm::setBatteryMeter(const BatteryMeter& batteryMeter1) {
 Step CleaningAlgorithm::nextStep() {
 
     return Step::Finish;
+}
+
+int CleaningAlgorithm::getj() {
+    return this->j;
 }
 
 CleaningAlgorithm::~CleaningAlgorithm() {

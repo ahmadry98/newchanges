@@ -101,12 +101,16 @@ void MySimulator::run() {
     std::vector<Step> allmoves(maxSteps);
     CleaningAlgorithm algorithm(maxSteps);
     int i = 0;
-
+    Step s = Step::Stay;
     while (hoover->getBatteryLevel() > 0 && house->getTotalDirt() > 0 && i < hoover->getMaxSteps()) {
         Step move = algorithm.nextMove(*new MyDirtSensor(hoover), *new MyWallSensor(hoover), *new MyBatterySensor(hoover));
         allmoves[i] = move;
         hoover->move(move);
         i++;
+        if(hoover->getMaxSteps() < i + algorithm.getj()){
+            s=Step::Finish;
+            break;
+        }
     }
 
     while (house->getTotalDirt() == 0) {
@@ -135,16 +139,20 @@ void MySimulator::run() {
     outputFile << "NumSteps=" << i << std::endl;
     outputFile << "DirtLeft=" << house->getTotalDirt() << std::endl;
     outputFile << "Status=" ;
-    if(i==hoover->getMaxSteps()&&house->getTotalDirt()>0){
-        outputFile << "WORKING"<< std::endl;
+    if(s==Step::Finish) {
+        outputFile << "FINISHED" << std::endl;
     }
-    if(house->getTotalDirt()==0) {
-        outputFile << "FINISHED"<< std::endl;
+    else {
+        if (i == hoover->getMaxSteps() && house->getTotalDirt() > 0) {
+            outputFile << "WORKING" << std::endl;
+        }
+        if (house->getTotalDirt() == 0) {
+            outputFile << "FINISHED" << std::endl;
+        }
+        if (hoover->getBatteryLevel() == 0) {
+            outputFile << "DEAD" << std::endl;
+        }
     }
-    if(hoover->getBatteryLevel()==0){
-        outputFile << "DEAD"<< std::endl;
-    }
-
     outputFile << "Steps:"<< std::endl;
     for (int j = 0; j < i; j++) {
         switch (allmoves[j]) {

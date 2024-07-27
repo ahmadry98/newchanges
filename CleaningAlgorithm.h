@@ -41,7 +41,7 @@ public:
     bool shouldReturnToDocking(MyBatterySensor& batterySensor);
 
     void setMaxSteps(std::size_t maxSteps) override;
-
+    int getj();
     void setWallsSensor(const WallsSensor& wallsSensor) override;
 
     void setDirtSensor(const DirtSensor& dirtSensor) override ;
